@@ -20,5 +20,6 @@
 	"prettyprint": false,
 	"label": false,
 	"format": true,
+	"template": false,
 	"timer": false
 }

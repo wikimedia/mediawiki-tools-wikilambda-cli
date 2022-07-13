@@ -48,6 +48,7 @@ The following parameters are available:
 --[no]prettyprint: prints the result in the format used in the data directory
 --[no]label: replaces all ZIDs with labels
 --[no]format: uses a formatter to show the result in an easier to read way
+--[no]template: interpret the input as an NLG template
 --[no]timer: displays how much time the call took
 --file: followed by a path to a file to be loaded by the tool
 --config: followed by a path to a config file (see below)

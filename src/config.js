@@ -86,6 +86,10 @@ const load = (settings) => {
   if ('timer' in settings) {
     config.timer = settings.timer;
   }
+  config.template = false;
+  if ('template' in settings) {
+    config.template = settings.template;
+  }
   config.loaded = true;
 };
 
@@ -272,6 +276,16 @@ const setTimer = (b) => {
   config.timer = b;
 };
 
+const template = () => {
+  ensureLoaded();
+  return config.template;
+};
+
+const setTemplate = (b) => {
+  ensureLoaded();
+  config.template = b;
+};
+
 exports.load = load;
 exports.reset = reset;
 exports.language = language;
@@ -305,4 +319,6 @@ exports.format = format;
 exports.setFormat = setFormat;
 exports.timer = timer;
 exports.setTimer = setTimer;
+exports.template = template;
+exports.setTemplate = setTemplate;
 exports.version = version;

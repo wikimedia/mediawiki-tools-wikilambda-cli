@@ -11,6 +11,7 @@ const formatter = require('./format.js');
 const load = require('./load.js');
 const parse = require('./parse.js');
 const utils = require('./utils.js');
+const templateParser = require('./template.js');
 
 // The result of an evaluation consists of a pair (Z22) of the real result and
 // some metadata. This functions returns the first element of the pair, except
@@ -61,7 +62,8 @@ const answerAsync = async (input, {
   label = null,
   format = null,
   focus = null,
-  timer = null
+  timer = null,
+  template = null
 } = {}) => {
   if (output === null) {
     output = console.log;
@@ -104,6 +106,9 @@ const answerAsync = async (input, {
   }
   if (timer === null) {
     timer = config.timer();
+  }
+  if (template === null) {
+    template = config.template();
   }
   const starttime = Date.now();
   const data = input.trim();
@@ -149,7 +154,12 @@ const answerAsync = async (input, {
     }
   }
 
-  if (first === '[' || first === '{') {
+  if (template) {
+    call = await templateParser.buildTemplate(data);
+    if (ast) {
+      output(write(call));
+    }
+  } else if (first === '[' || first === '{') {
     call = JSON.parse(data);
   } else if (utils.isZid(data)) {
     call = await load.load(data).then(getPersistentobjectValue);

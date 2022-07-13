@@ -127,6 +127,14 @@ let input = null;
         config.setTimer(false);
         continue;
       }
+      if (v === '--template') {
+        config.setTemplate(true);
+        continue;
+      }
+      if (v === '--notemplate') {
+        config.setTemplate(false);
+        continue;
+      }
       console.log('Unknown argument: ' + v);
       process.exit(1);  // eslint-disable-line no-process-exit
     }
