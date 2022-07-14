@@ -3,7 +3,7 @@
 const canonicalizeSchemata = require('../function-schemata/javascript/src/canonicalize.js');
 
 // TODO: do something in error case
-const canonicalize = (zobject) => canonicalizeSchemata(zobject).Z22K1;
+const canonicalize = async (zobject) => (await canonicalizeSchemata(zobject)).Z22K1;
 
 const canonicalizeAsync = async (zobject) => {
   if (zobject.Z1K1 === 'Z5') {

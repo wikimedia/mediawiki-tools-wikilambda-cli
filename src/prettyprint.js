@@ -2,8 +2,8 @@
 
 const canonicalize = require('./canonicalize.js');
 
-const prettyprint = (zobject) => {
-  return JSON.stringify(canonicalize.canonicalize(zobject), null, '\t');
+const prettyprint = async (zobject) => {
+  return JSON.stringify(await canonicalize.canonicalize(zobject), null, '\t');
 };
 
 const prettyprintAsync = async (zobject) => {

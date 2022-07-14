@@ -7,7 +7,7 @@ const normalizeSchemata = require('../function-schemata/javascript/src/normalize
   // forward the error that happened in preliminary normalization
 //  return normalized;
 // }
-const normalize = (zobject) => normalizeSchemata(zobject).Z22K1;
+const normalize = async (zobject) => (await normalizeSchemata(zobject)).Z22K1;
 
 const normalizeAsync = async (zobject) => {
   return new Promise((resolve, reject) => {

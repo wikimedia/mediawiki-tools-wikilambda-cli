@@ -188,18 +188,18 @@ const answerAsync = async (input, {
     result = getResultValue(result);
   }
   if (canonical) {
-    result = canonicalize.canonicalize(result);
+    result = await canonicalize.canonicalize(result);
     const f = (focus === 'canonical') ? id : dim;
     output(f(write(result)));
   }
   if (normal) {
-    result = normalize.normalize(result);
+    result = await normalize.normalize(result);
     const f = (focus === 'normal') ? id : dim;
     output(f(write(result)));
   }
   if (prettyprint) {
     const f = (focus === 'prettyprint') ? id : dim;
-    output(f(prettyprinter.prettyprint(result)));
+    output(f(await prettyprinter.prettyprint(result)));
   }
   if (label) {
     const f = (focus === 'label') ? id : dim;
