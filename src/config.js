@@ -92,6 +92,7 @@ const load = (settings) => {
 const loadLocal = () => {
   let localConfig = {};
   try {
+    // eslint-disable-next-line node/no-missing-require
     localConfig = require('./../config.json');
   } catch (err) {
     console.log('No config.json exists, using config.default.json instead.');
