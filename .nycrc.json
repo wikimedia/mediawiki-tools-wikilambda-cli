@@ -24,9 +24,9 @@
 	"per-file": false,
 
 	"//": "Enforce some level of code coverage for the repo; eventually these should each be 100%.",
-	"statements": 30.0,
+	"statements": 32.0,
 	"branches": 18.0,
-	"functions": 28.0,
-	"lines": 30.0,
+	"functions": 32.0,
+	"lines": 32.0,
 	"check-coverage": true
 }
