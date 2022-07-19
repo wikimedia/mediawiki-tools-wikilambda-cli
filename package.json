@@ -1,10 +1,10 @@
 {
-	"name": "lambda-cli",
+	"name": "wikilambda-cli",
 	"version": "0.1.0",
 	"description": "a command line interface to Wikifunctions",
 	"repository": {
 		"type": "git",
-		"url": "git://ithub.com/vrandezo/lambda-cli.git"
+		"url": "ssh://gerrit.wikimedia.org:29418/mediawiki/tools/wikilambda-cli"
 	},
 	"keywords": [
 		"CLI",
@@ -13,18 +13,13 @@
 		"commands",
 		"WikiLambda"
 	],
-	"author": {
-		"name": "Denny Vrandečić",
-		"email": "denny@wikimedia.org",
-		"url": "http://simia.net/wiki/Denny"
-	},
-	"contributors": [
-	],
+	"author": "Abstract Wikipedia Team <wikitech-l@lists.wikimedia.org>",
+	"contributors": [],
 	"license": "Apache-2.0",
 	"bugs": {
-		"url": "https://github.com/vrandezo/lambda-cli/issues"
+		"url": "https://phabricator.wikimedia.org/tag/abstract_wikipedia/"
 	},
-	"homepage": "https://github.com/vrandezo/lambda-cli",
+	"homepage": "http://meta.wikimedia.org/wiki/Abstract%20Wikipedia",
 	"main": "src/lambda.js",
 	"scripts": {
 		"start": "src/lambda.js",
@@ -42,6 +37,6 @@
 		"qunit": "^2.17.2"
 	},
 	"engines": {
-		"node": ">=17.0.0"
+		"node": ">=16.0.0"
 	}
 }
