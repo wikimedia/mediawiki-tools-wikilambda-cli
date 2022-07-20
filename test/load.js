@@ -16,6 +16,16 @@ QUnit.test('load Z1', async (assert) => {
   );
 });
 
+QUnit.test('load Z1 from Web', async (assert) => {
+  config.reset();
+  config.setWiki('beta');
+  load.resetAll();
+  assert.deepEqual(
+    (await load.load(c.Object))[c.PersistentobjectValue][c.ObjectType],
+    c.Type
+  );
+});
+
 QUnit.test('load Z0 with error', async (assert) => {
   config.reset();
   config.setWiki('files');
