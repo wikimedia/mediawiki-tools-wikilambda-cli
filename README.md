@@ -1,17 +1,17 @@
-# lambda CLI
+# Wikilambda CLI
 
 A command line interface to Wikifunctions (or any other WikiLambda
 installation).
 
-lambda is usable as a CLI tool in two ways: either calling it for a specific
+wikilambda is usable as a CLI tool in two ways: either calling it for a specific
 command or in interactive mode.
 
 ## installation
 
 Clone the lambda CLI and set up the dependencies:
 ```
-git clone https://github.com/vrandezo/lambda-cli.git
-cd lambda-cli
+git clone ssh://gerrit.wikimedia.org:29418/mediawiki/tools/wikilambda-cli
+cd wikilambda-cli
 git submodule init
 git submodule update
 npm install
