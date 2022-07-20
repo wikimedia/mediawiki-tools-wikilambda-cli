@@ -54,6 +54,8 @@ Thumbs.db
 /.htaccess
 /.htpasswd
 *.rej
+/coverage
+/.nyc_output
 
 # Docker
 docker-compose.override.yml
