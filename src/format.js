@@ -43,8 +43,11 @@ async function format(output, lang) {
       if (output[c.ObjectType] === c.Function) {
         let result = await formatAtLevel(output[c.FunctionIdentity], indent + 1);
         result += ': ';
+        const functionArguments = output[c.FunctionArguments];
+        // Drop the type at the beginning of the Benjamin array.
+        functionArguments.shift();
         let first = true;
-        for (const key of output[c.FunctionArguments]) {
+        for (const key of functionArguments) {
           if (!first) {
             result += ', ';
           }
