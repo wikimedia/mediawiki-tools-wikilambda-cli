@@ -7,7 +7,7 @@ const utils = require('./utils.js');
 // TODO: break into formatArray, formatString, formatType, etc.
 // TODO: do that before writing tests!
 async function format(output, lang) {
-  async function formatAtLevel(output, indent = 0) {
+  async function formatAtLevel(output, indent = 0, nestedType = false) {
     if (utils.isArray(output)) {
       if (output.length === 0) {
         return '[]';
@@ -84,16 +84,13 @@ async function format(output, lang) {
       if (output[c.ObjectType] === c.Boolean) {
         return await formatAtLevel(output[c.BooleanValue], indent);
       }
-      // if (Object.keys(output).length === 2) {
-      //  return await formatAtLevel(output[Object.keys(output)[1]], indent);
-      // }
-      let typeid = '';
-      if (utils.isZid(output[c.ObjectType])) {
-        typeid = output[c.ObjectType];
-      } else {
-        typeid = output[c.ObjectType][c.TypeIdentity];
+      let result = '';
+      if (nestedType) {
+        // Retroactively add a field for the type at the previous level to disambiguate.
+        result += '\n' + '  '.repeat(indent);
+        result += await labelize.labelizeId(c.ObjectType) + ': ';
       }
-      let result = await labelize.labelizeId(typeid);
+      result += await formatAtLevel(output[c.ObjectType], indent + 1, true);
       for (const key in output) {
         if (key === c.ObjectType) {
           continue;
